@@ -13,7 +13,7 @@ components:
 security:
   - bearerAuth: []
 servers:
-  - url: https://moodprojects.xyz/emirates-landscape/admin/public/api
+  - url: https://moodprojects.xyz/emirates-landscape/public/api
 
  ##### Pages #####
 paths:
