@@ -1,0 +1,218 @@
+openapi: 3.0.0
+info:
+  title: Emirates Landscape API
+  version: 1.0.0
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - bearerAuth: []
+servers:
+  - url: https://moodprojects.xyz/emirates-landscape/admin/public/api
+
+ ##### Pages #####
+paths:
+  /pages:
+    post:
+      summary: Get Pages
+      description: Get Pages, optionally specifying a slug.
+      requestBody:   
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                slug:
+                  type: string
+                  description: Optional slug identifier
+                  example: about-us
+      responses:
+        '201':
+          description: Pages Retrieved Successfuly!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:            
+                  slug:
+                    type: string
+                    example: about-us
+        '400':
+          description: Bad request 
+
+  ##### Get news #####
+  /news:
+    post:
+      summary: Get News
+      description: Get News, optionally specifying a slug.
+      requestBody:   
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                slug:
+                  type: string
+                  description: Optional slug identifier
+                  example: about-us
+      responses:
+        '201':
+          description: News Retrieved Successfuly!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:            
+                  slug:
+                    type: string
+                    example: about-us
+        '400':
+          description: Bad request 
+
+  ##### Get certifications #####
+  /certifications:
+    get:
+      summary: Get Certifications
+      description: Get Certifications   
+      responses:
+        '201':
+          description: Certifications Retrieved Successfuly!         
+        '400':
+          description: Bad request 
+
+##### Get certifications #####
+  /products:
+    get:
+      summary: Get Products
+      description: Get Products   
+      responses:
+        '201':
+          description: Products Retrieved Successfuly!         
+        '400':
+          description: Bad request 
+
+##### Get Services #####
+  /services:
+    get:
+      summary: Get Services
+      description: Get Services  
+      responses:
+        '201':
+          description: Services Retrieved Successfuly!         
+        '400':
+          description: Bad request 
+
+##### Get Project Gallery #####
+  /project-gallery:
+    get:
+      summary: Project Gallery
+      description: Project Gallery
+      responses:
+        '201':
+          description: Project Gallery Retrieved Successfuly!         
+        '400':
+          description: Bad request 
+
+ ##### Save Contact Information #####
+
+  /save-contact-info:
+    post:
+      summary: Save Contact Informations
+      description: Save Contact Informations.
+      requestBody:   
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: name identifier
+                  example: John Doe
+                email:
+                  type: string
+                  description: email identifier
+                  example: johndoe@test.com
+                subject:
+                  type: string
+                  description: subject identifier
+                  example: Landscape Gardening
+                message:
+                  type: string
+                  description: message identifier
+                  example: About Landscape Gardening
+      responses:
+        '201':
+          description: Contact Information Saved Successfuly!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:            
+                name:
+                  type: string
+                  example: John Doe
+                email:
+                  type: string
+                  example: johndoe@test.com
+                subject:
+                  type: string             
+                  example: Landscape Gardening
+                message:
+                  type: string                
+                  example: About Landscape Gardening
+        '400':
+          description: Bad request 
+
+##### Get Section #####
+  /sections:
+    post:
+      summary: Get Sections
+      description: Get Sections
+      requestBody:   
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                slug:
+                  type: string
+                  description: Name identifier
+                  example: Home Page
+                page-slug:
+                  type: string
+                  description: Page slug identifier
+                  example: home-page
+
+      responses:
+        '201':
+          description: Get page sections!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:            
+                slug:
+                  type: string                  
+                  example: Home Page
+                page-slug:
+                  type: string                  
+                  example: home-page
+        '400':
+          description: Bad request 
+
+##### Get Contacts #####
+  /contacts:
+    get:
+      summary: Get Contacts
+      description: Get Contacts
+      responses:
+        '201':
+          description: Get Contacts Retrieved Successfuly!         
+        '400':
+          description: Bad request 
